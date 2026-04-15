@@ -29,24 +29,25 @@ It allows multiple clients to communicate through a central server using topic-b
 
 ## 📂 Project Structure
 
-server.py → Server handling connections and routing
-client.py → Base client communication module
-publisher.py → Sends messages to topics
-subscriber.py → Subscribes and receives messages
-generate_cert.py → Generates SSL certificates
-server.crt / server.key → SSL certificate files
+
+
+server.py → Server handling connections and message routing  
+client.py → Combined client module supporting both publishing and subscribing  
+generate_cert.py → Generates SSL certificate  
+server.crt / server.key → SSL certificate files  
 
 ---
 
+
+
 ## 🔄 Client Design
 
-The client-side is modular:
+The client-side functionality is combined into a single file:
 
-* `client.py` handles basic socket connection logic
-* `publisher.py` sends messages
-* `subscriber.py` receives messages
+- `client.py` supports both publishing and subscribing
+- Users can choose to send messages or subscribe to topics
+- This simplifies the architecture and improves usability
 
-This improves modularity and code reuse.
 
 ---
 
@@ -73,38 +74,19 @@ python generate_cert.py
 
 ---
 
+
 ## ▶️ How to Run
 
 ### Step 1: Start Server
-
-```bash
 python server.py
-```
 
----
+### Step 2: Start Client
+python client.py
 
-### Step 2: Start Subscriber
-
-Open a new terminal:
-
-```bash
-python subscriber.py
-```
-
-Enter username and topic.
-
----
-
-### Step 3: Start Publisher
-
-Open another terminal:
-
-```bash
-python publisher.py
-```
-
-Enter publisher name, topic, and message.
-
+Users can:
+- Enter username
+- Choose to publish messages
+- Subscribe to topics
 ---
 
 ## 🔄 Example
